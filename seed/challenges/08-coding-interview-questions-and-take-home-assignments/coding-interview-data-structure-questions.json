@@ -390,7 +390,7 @@
       "releasedOn": "Feb 17, 2017",
       "solutions": [
         "function Set() {var collection = []; this.has = function(e){return(collection.indexOf(e) !== -1);};this.values = function() {return collection;};this.add = function(element) {if (!this.has(element)) {collection.push(element);return true;} else {return false;}};this.remove = function(element) {if(this.has(element)) {var i = collection.indexOf(element);collection.splice(i, 1);return true;}return false;};this.size = function() {return collection.length;};}"
-    ],
+      ],
       "challengeType": 1,
       "translations": {}
     },
@@ -1026,7 +1026,7 @@
         "assert((function(){var test = new LinkedList(); test.add('cat'); test.add('dog'); return test.head().next.element === 'dog'}()), 'message: The previous <code>node</code> in your <code>LinkedList</code> class should have reference to the newest node created.');",
         "assert((function(){var test = new LinkedList(); test.add('cat'); test.add('dog'); return test.size() === 2}()), 'message: The  <code>size</code> of your <code>LinkedList</code> class should equal the amount of nodes in the linked list.');"
       ],
-      "solutions": [],
+      "solutions": ["function LinkedList() { var length = 0; var head = null; var Node = function(element){ this.element = element; this.next = null; }; this.length = function(){ return length; }; this.head = function(){ return head; }; this.add = function(element){ var node = new Node(element); if(head === null){ head = node; } else { var currentNode = head; while(currentNode.next){ currentNode  = currentNode.next; } currentNode.next = node; } length++; }; "],
       "hints": [],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
@@ -1069,7 +1069,7 @@
         "    if(head === null){",
         "        head = node;",
         "    } else {",
-        "        currentNode = head;",
+        "        var currentNode = head;",
         "",
         "        while(currentNode.next){",
         "            currentNode  = currentNode.next;",
